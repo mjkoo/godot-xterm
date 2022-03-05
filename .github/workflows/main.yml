@@ -1,13 +1,11 @@
 name: 'Build and Test'
 
 on:
-  push:
-  schedule: # Build and test daily.
-    - cron: 0 11 * * *
+  workflow_dispatch:
 
 env:
-  GODOT: Godot_v3.3.2-stable
-  GODOT_VERSION: 3.3.2
+  GODOT: Godot_v3.4.3-stable
+  GODOT_VERSION: 3.4.3
   GODOT_RELEASE: stable
 
   # Caches should be automatically invalidated when versions change,
@@ -261,7 +259,7 @@ jobs:
       matrix:
         os: [ windows-latest, macos-latest, ubuntu-latest ]
         bits: [ 64, 32 ]
-        godot_version: [ 'v3.2-stable', 'v3.3.4-stable', 'v3.4-stable' ]
+        godot_version: [ 'v3.4.3-stable' ]
         exclude:
           - os: macos-latest
             bits: 32
